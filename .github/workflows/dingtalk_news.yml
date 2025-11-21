@@ -2,18 +2,18 @@ name: Daily News Push to DingTalk
 
 on:
   schedule:
-    - cron: '0 1 * * *' 
-  workflow_dispatch: 
+    - cron: '0 1 * * *'
+  workflow_dispatch:
 
 jobs:
   run_news_scraper:
     runs-on: ubuntu-latest
-    
+
     steps:
     # 步骤 A: 检出代码 (Checkout code) - 这是必须的
     - name: Checkout code
       uses: actions/checkout@v4
-    
+
     # 步骤 B: 设置 Python 环境 (Set up Python)
     # 我们不需要 cache: 'pip' 来找 requirements.txt，而是让安装步骤自己找。
     - name: Set up Python
@@ -21,12 +21,12 @@ jobs:
       with:
         python-version: '3.10'
         # 移除 'cache: pip' 这一行，避免 setup-python 报错
-        
+
     # 步骤 C: 安装依赖库 (Install dependencies)
     # 这一步是找到 requirements.txt 的关键
     - name: Install dependencies
       run: pip install -r requirements.txt
-      
+
     # 步骤 D: 运行 Python 脚本 (Run News Scraper)
     - name: Run News Scraper
       run: python news_scraper.py
