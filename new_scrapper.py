@@ -125,7 +125,7 @@ def main_job(new_list=None):
     if news_list and len(news_list[0]) >20: # 假设有效新闻长度大于20字符，排除短的错误信息
         send_dingding_message(news_list)
     else:
-        error_message = f"❌每日新闻爬取失败，请手动检查脚本。详情：{''.join(new_list)}"
+        error_message = f"❌每日新闻爬取失败，请手动检查脚本。详情：{''.join(news_list)}"
         print(error_message)
         
     print('---任务结束---')
