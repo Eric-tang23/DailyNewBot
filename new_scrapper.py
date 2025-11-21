@@ -85,7 +85,7 @@ def send_dingding_message(news_list=None):
     markdown_text = (
         f"##📰每日热点新闻（{time.strftime('%Y-%m-%d')}）"
         f"**来源：**百度热搜"
-        f"{'\n\n'.join(news_list)}"
+        f"{''.join(news_list)}"
         f"---"
     )
 
