@@ -6,9 +6,10 @@ import hmac
 import hashlib
 import base64
 import json
+import os
 
-DINGDING_WEBHOOK_BASE = "https://oapi.dingtalk.com/robot/send?access_token=193af1e88c7fb172acf94083149830a4bcfec8c5043ff0acee3622449861f603"
-DINGDING_SECRET = "SECfa6cfd6d5a3484500b4e6d77bc2e6cb6fec14e510a7eda2257f1685a6bf76d9f"
+DINGDING_WEBHOOK_BASE = os.environ.get("DINGDING_WEBHOOK_BASE")
+DINGDING_SECRET = os.environ.get("DINGDING_SECRET")
 
 def get_hot_news():
     """爬取百度热搜榜，并返回格式化的新闻列表"""

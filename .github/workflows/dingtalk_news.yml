@@ -9,6 +9,10 @@ jobs:
   run_news_scraper:
     runs-on: ubuntu-latest
 
+    env:
+      DINGDING_WEBHOOK_BASE: ${{ secrets.DINGDING_WEBHOOK_BASE }}
+      DINGDING_SECRET: ${{ secrets.DINGDING_SECRET }}
+
     steps:
     # 步骤 A: 检出代码 (Checkout code) - 这是必须的
     - name: Checkout code
