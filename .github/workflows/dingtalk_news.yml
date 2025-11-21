@@ -29,4 +29,4 @@ jobs:
 
     # 步骤 D: 运行 Python 脚本 (Run News Scraper)
     - name: Run News Scraper
-      run: python new_scraper.py
+      run: python new_scrapper.py
