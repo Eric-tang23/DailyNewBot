@@ -94,7 +94,7 @@ def send_dingding_message(news_list=None):
     data = {
         'msgtype':'markdown',
         'markdown':{
-            'title':f'【热点新闻】{time.strftime('%Y-%m-%d')}',
+            'title':f'【热点新闻】{time.strftime("%Y-%m-%d")}',
             'text':markdown_text,
         },
         'at':{
