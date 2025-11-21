@@ -1,0 +1,37 @@
+name: Daily News Push to DingTalk
+
+# 1. 触发器：定义何时运行这个工作流
+on:
+  # 使用 schedule 关键字定义定时任务
+  schedule:
+    # cron 格式: 分 时 日 月 周
+    # 下面这行示例设置为 每天 北京时间 9:00 (使用 UTC 时间表示)
+    # 北京时间(CST) 9:00 = UTC 1:00 (如果你在东八区)
+    - cron: '0 1 * * *'
+  # 允许手动触发，方便测试
+  workflow_dispatch:
+
+# 2. 工作流任务
+jobs:
+  run_news_scraper:
+    runs-on: ubuntu-latest # 在最新的 Ubuntu 虚拟机上运行
+
+    steps:
+    # 步骤 A: 检出代码
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 步骤 B: 设置 Python 环境
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip' # 启用 pip 缓存加速安装
+
+    # 步骤 C: 安装依赖库
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    # 步骤 D: 运行 Python 脚本
+    - name: Run News Scraper
+      run: python news_scraper.py
