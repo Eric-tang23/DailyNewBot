@@ -83,9 +83,9 @@ def send_dingding_message(news_list=None):
     # 构造Markdown格式的完整消息内容
     # 注意：Markdown格式要求内容之间用\n\n隔开
     markdown_text = (
-        f"##📰每日热点新闻（{time.strftime('%Y-%m-%d')}）"
-        f"**来源：**百度热搜"
-        f"{''.join(news_list)}"
+        f"##📰每日热点新闻（{time.strftime('%Y-%m-%d')}）\n\n"
+        f"**来源：**百度热搜\n\n"
+        f"{'\n\n'.join(news_list)}"
         f"---"
     )
 
