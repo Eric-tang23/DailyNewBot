@@ -118,7 +118,7 @@ def send_dingding_message(news_list=None):
         return False
     
 def main_job(new_list=None):
-    print(f'---任务开始：{time.strftime('%Y-%m-%d %H:%M:%S')}---')
+    print(f"---任务开始：{time.strftime('%Y-%m-%d %H:%M:%S')}---")
     news_list = get_hot_news()
     
     # 仅在爬取有效内容是才发送，否则发送失败
